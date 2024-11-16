@@ -334,6 +334,7 @@ class mainWindow(QMainWindow):
         # Create a new window to display stats if it doesn't exist
         if self.stats_window is None:
             self.stats_window = QWidget()
+            self.stats_window.setGeometry(300, 300, 200, 200)
             self.stats_window.setWindowTitle("Statistics")
             self.stats_layout = QVBoxLayout()
             self.stats_window.setLayout(self.stats_layout)
