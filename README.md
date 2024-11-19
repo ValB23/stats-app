@@ -27,8 +27,9 @@ You can also drag & drop the .dat file into the app window.
 - Switching between a bar graph (histogram) and a pie chart (pie)
 - Changing color `Display -> Color`
 - Saving the bar graph into a file `File -> Save`
-- Restoring the bar graph into the app in `File -> Restore`
+- Restoring the bar graph into the app `File -> Restore`
+- Showing detailed statistics `Stats -> Details`
 
 ### Issues to fix
 
-- Randomizing an histogram shows the detailed stats window.
+- None found so far

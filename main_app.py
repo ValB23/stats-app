@@ -108,7 +108,7 @@ class mainWindow(QMainWindow):
         self.pieAct.triggered.connect(self.pie)
 
         # Stats action menu
-        self.statsAct = QAction(" &Stats", self)
+        self.statsAct = QAction(" &Details", self)
         self.statsAct.setShortcut("Ctrl+T")
         self.statsAct.triggered.connect(self.stats)
 
@@ -246,7 +246,10 @@ class mainWindow(QMainWindow):
                 self.histo.list[i] = random.randint(0, 99)
             self.histo.max = int(max(self.histo.list))
             self.histo.sum = sum(self.histo.list)
-            self.dataChanged.emit()  # Emit the signal to update the statistics window
+            # self.dataChanged.emit()  # Emit the signal to update the statistics window
+            #Close statistics window if it's open
+            if self.stats_window is not None:
+                self.stats_window.close()
             
 
     def keyPressEvent(self, event):
