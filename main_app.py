@@ -71,10 +71,10 @@ class mainWindow(QMainWindow):
         self.dataChanged.connect(self.updateStatsWindow)
 
     # Might be deleted if no potential uses are found.
-    def resizeEvent(self, event):
-        self.titleMainWindow = datetime.now().strftime("  %H:%M:%S") + '| Res: ' + str(
-            self.width()) + 'x' + str(self.height())
-        self.setWindowTitle(self.titleMainWindow)
+    # def resizeEvent(self, event):
+    #     self.titleMainWindow = datetime.now().strftime("  %H:%M:%S") + '| Res: ' + str(
+    #         self.width()) + 'x' + str(self.height())
+    #     self.setWindowTitle(self.titleMainWindow)
 
     def createActions(self):
 
@@ -114,8 +114,6 @@ class mainWindow(QMainWindow):
 
 
     def createMenus(self):
-        # Create the menus and its items 
-
         fileMenu = self.menuBar().addMenu("&File")
         fileMenu.addAction(self.openAct)
         fileMenu.addAction(self.saveAct)
@@ -188,13 +186,11 @@ class mainWindow(QMainWindow):
 
     def save(self):
         # saveAct slot, instance of QAction"""
-
         self.serialize()
         self.statusBar.showMessage("Histogram saved")
 
     def restore(self):
         # restoreAct slot, instance of QAction"""
-
         self.deserialize()
         self.update()
         
@@ -216,14 +212,12 @@ class mainWindow(QMainWindow):
         self.statusBar.showMessage("Histogram restored")
 
     def exit(self):
-        # exitAct slot, instance of QAction"""
-
+        # exitAct slot, instance of QAction
         self.statusBar.showMessage("Quit")
         QApplication.quit()
 
     def color(self):
         # colorAct slot, instance of QAction
-
         self.statusBar.showMessage("Color")
         self.colorIcon = QColorDialog.getColor(self.colorIcon)
         self.pixmap.fill(self.colorIcon)
@@ -233,7 +227,6 @@ class mainWindow(QMainWindow):
 
     def clear(self):
         # clearAct slot , instance of QAction
-
         self.statusBar.showMessage("Histogram cleared")
         self.histo.list = []
         self.histo.size = 0
@@ -247,7 +240,7 @@ class mainWindow(QMainWindow):
             self.histo.max = int(max(self.histo.list))
             self.histo.sum = sum(self.histo.list)
             # self.dataChanged.emit()  # Emit the signal to update the statistics window
-            #Close statistics window if it's open
+            # Close statistics window if it's open
             if self.stats_window is not None:
                 self.stats_window.close()
             
@@ -284,7 +277,7 @@ class mainWindow(QMainWindow):
                 self.update()
 
     def histogram(self):
-        """ Slot associé à histoAct, instance de QAction"""
+        # histoAct slot, instance of QAction"""
 
         self.statusBar.showMessage("Histogramme")
         self.isHisto = True
